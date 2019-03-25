@@ -1,0 +1,20 @@
+{
+  "name": "tree-json-generator",
+  "version": "0.0.1",
+  "description": "Simple JSON Tree generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kanitelk/tree-json-generator.git"
+  },
+  "author": "Kirill Tyurin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kanitelk/tree-json-generator/issues"
+  },
+  "homepage": "https://github.com/kanitelk/tree-json-generator#readme",
+  "dependencies": {}
+}
