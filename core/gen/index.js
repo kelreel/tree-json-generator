@@ -1,4 +1,5 @@
 const randomInteger = require("../pipes/integer");
+var nodes = 0;
 
 /** MAIN FUNCTION */
 exports.generate = function(config) {
@@ -29,7 +30,11 @@ exports.generate = function(config) {
     for (let j = 0; j < fields.length; j++) {
       /** Check pipe */
       if (config.node[fields[j]] === "@child()") {
-        node[fields[j]] = genChild(config, 0);
+        node[fields[j]] = genChild(config, 0, node.id);
+      } else if (config.node[fields[j]] === "@parent()") {
+        node[fields[j]] = "root";
+      } else if (config.node[fields[j]] === "@level()") {
+        node[fields[j]] = 0;
       } else if (
         typeof config.node[fields[j]] === "string" &&
         config.node[fields[j]][0] == "@"
@@ -39,14 +44,17 @@ exports.generate = function(config) {
         node[fields[j]] = config.node[fields[j]];
       }
     }
+    nodes++;
     tree.push(node);
   }
+  //console.log(nodes);
   return tree;
 };
 
 /** GENERATE CHILD FUNCTION */
-function genChild(config, level) {
-  const maxLevel = config.maxLevel;
+function genChild(config, level, parent = "null") {
+  let maxLevel = config.maxLevel;
+  if (maxLevel === undefined) maxLevel = 3;
 
   if (level >= maxLevel) return;
   if (config.hasChildRate) {
@@ -81,7 +89,11 @@ function genChild(config, level) {
     for (let j = 0; j < fields.length; j++) {
       /** Check pipe */
       if (config.node[fields[j]] === "@child()") {
-        node[fields[j]] = genChild(config, level + 1);
+        node[fields[j]] = genChild(config, level + 1, node.id);
+      } else if (config.node[fields[j]] === "@parent()") {
+        node[fields[j]] = parent;
+      } else if (config.node[fields[j]] === "@level()") {
+        node[fields[j]] = level + 1;
       } else if (
         typeof config.node[fields[j]] === "string" &&
         config.node[fields[j]][0] == "@"
@@ -91,6 +103,7 @@ function genChild(config, level) {
         node[fields[j]] = config.node[fields[j]];
       }
     }
+    nodes++;
     tree.push(node);
   }
 
@@ -102,11 +115,13 @@ const randomFruit = require("../pipes/fruit");
 const randomName = require("../pipes/name");
 const randomEmail = require("../pipes/email");
 const randomBoolean = require("../pipes/boolean");
+const id = require("../pipes/id");
 
 /** EXPORT PIPES */
 exports.randomFruit = randomFruit;
 exports.randomName = randomName;
 exports.randomEmail = randomEmail;
 exports.randomBoolean = randomBoolean;
+exports.id = id;
 
 exports.randomInteger = randomInteger;

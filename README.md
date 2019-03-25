@@ -1,4 +1,4 @@
-<h1 align="center">Tree JSON Generator</h1>
+<h1 align="center"><img height="150" src="./docs/icon.png" /><br>Tree JSON Generator</h1>
 
 <p align="center">
   <a href="https://github.com/kamranahmedse/driver.js/blob/master/license">
@@ -14,6 +14,10 @@
   <b>Simple library for generating JSON trees</b></br>
   <sub>No external dependency, highly customizable <sub>
 </p>
+  
+<h2 align="center">
+  <a href="https://kanitelk.github.io/tree-json-generator/">DEMO</a>
+</h2>
 
 ## Installation
 
@@ -24,6 +28,8 @@ npm install tree-json-generator
 # or
 yarn add tree-json-generator
 ```
+
+![](./docs/split.png)
 
 ## Usage
 
@@ -61,6 +67,8 @@ const config = {
 
 let tree = TreeGen.generate(config);
 ```
+
+![](./docs/split.png)
 
 ## Pipes
 
@@ -108,6 +116,7 @@ Random Integer from range
 
 Random Boolean (value - coefficient)
 
+![](./docs/split.png)
 
 ## Config API
 
@@ -130,3 +139,4 @@ Not required. Max node level. Number (3). Default is 3.
 <b>`hasChildRate:`</b> 
 
 Not required. The probability that the node has children. From 0 to 1. Default is 1.
+

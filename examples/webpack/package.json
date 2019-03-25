@@ -29,6 +29,8 @@
     "webpack-md5-hash": "^0.0.6"
   },
   "dependencies": {
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "json-tree-viewer": "0.0.2",
+    "prettify-json": "^1.0.0"
   }
 }

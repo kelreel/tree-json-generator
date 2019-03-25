@@ -1,6 +1,8 @@
 const express = require("express");
 const treeGen = require("../../core");
 
+const { performance } = require("perf_hooks");
+
 const app = express();
 
 function testField() {
@@ -9,19 +11,24 @@ function testField() {
 
 const config = {
   node: {
+    id: "@id()",
+    parent: "@parent()",
+    level: "@level()",
     name: "@randomName()",
     number: "@randomInteger(-20,5)",
     email: "@randomEmail()",
     child: "@child()"
   },
-  rootNodesNumber: 2,
-  childNodesNumber: [0, 2],
-  hasChildRate: 1,
-  maxLevel: 1
+  rootNodesNumber: 10,
+  childNodesNumber: [1, 4],
+  hasChildRate: 0.3,
+  maxLevel: 2
 };
 
 app.get("/", function(req, res) {
-  res.send(treeGen.generator(config));
+  let t1 = performance.now();
+  res.send(treeGen.generate(config));
+  console.log(`${Math.round(performance.now() - t1, 2)} ms`);
 });
 
 app.listen(3003, function() {

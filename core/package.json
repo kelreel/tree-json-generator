@@ -1,6 +1,6 @@
 {
   "name": "tree-json-generator",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Simple JSON Tree generator",
   "keywords": ["json", "tree", "tree generator", "fake tree", "json generator", "fake json"],
   "main": "index.js",
