@@ -1,7 +1,7 @@
 const randomInteger = require("../pipes/integer");
 
 /** MAIN FUNCTION */
-exports.generator = function(config) {
+exports.generate = function(config) {
   let tree = [];
   let rootNodesNumber = 1;
   const fields = Object.getOwnPropertyNames(config.node);
