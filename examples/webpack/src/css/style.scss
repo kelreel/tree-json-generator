@@ -1,0 +1,13 @@
+* {
+  font-family: 'Roboto', sans-serif
+}
+
+a {
+  color: #000;
+  &:visited {
+    color: #000;
+  }
+  &:hover {
+    color: rgb(73, 62, 88);
+  }
+}
