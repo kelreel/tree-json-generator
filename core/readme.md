@@ -14,6 +14,10 @@
   <b>Simple library for generating JSON trees</b></br>
   <sub>No external dependency, highly customizable <sub>
 </p>
+  
+<h2 align="center">
+  <a href="https://kanitelk.github.io/tree-json-generator/">DEMO</a>
+</h2>
 
 ## Installation
 
